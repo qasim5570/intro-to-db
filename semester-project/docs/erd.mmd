@@ -1,0 +1,50 @@
+erDiagram
+    USER {
+        int user_id PK
+        string name
+        string email
+        string password_hash
+        datetime created_at
+    }
+
+    CITY {
+        int city_id PK
+        string name
+        string country
+    }
+
+    VENUE {
+        int venue_id PK
+        string name
+        string address
+        int city_id FK
+    }
+
+    CATEGORY {
+        int category_id PK
+        string name
+    }
+
+    EVENT {
+        int event_id PK
+        string title
+        datetime start_time
+        datetime end_time
+        int venue_id FK
+        int category_id FK
+        string source_event_id
+    }
+
+    USER_EVENT_PLAN {
+        int plan_id PK
+        int user_id FK
+        int event_id FK
+        string status
+        datetime created_at
+    }
+
+    CITY ||--o{ VENUE : "has"
+    VENUE ||--o{ EVENT : "hosts"
+    CATEGORY ||--o{ EVENT : "classifies"
+    USER ||--o{ USER_EVENT_PLAN : "creates"
+    EVENT ||--o{ USER_EVENT_PLAN : "appears in"

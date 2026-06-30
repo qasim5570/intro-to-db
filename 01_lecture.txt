@@ -1,0 +1,11 @@
+Relational -> Structured
+Non-structured
+
+Structured -> relational, non-relational (json, yaml, xml), in-memory
+
+Why document DB preferred over relational DB? 
+1. Access is fast
+2. Sharing over network is easy
+3. Access is more easy since you would not be interested in installing postgreSQL, pgAdmin to open a table
+
+Semi-structured - json but with less structure
